@@ -2,7 +2,7 @@ node {
 
 
    def commit_id
-   def dockerImageName = 'anilskp/springcassandra'
+   def dockerImageName = 'anilskp/firewalleventproc'
 
 
    stage('Checkout and Maven Build') {
@@ -28,11 +28,11 @@ node {
    }
 
    stage('Cleanup Running Containers') {
-    	sh "docker rm -f springcassandra || true"
+    	sh "docker rm -f firewalleventproc || true"
     }
     stage('Deploy') {
     	docker.withRegistry('https://registry.hub.docker.com', "dockerhub") {
-			sh "docker run -d --name springcassandra -p 8888:8080  ${dockerImageName}"
+			sh "docker run -d --name firewalleventproc  -p 8007:8080  ${dockerImageName}"
 		}
     }
 
