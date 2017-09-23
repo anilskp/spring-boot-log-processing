@@ -4,8 +4,9 @@ import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface FirewalleventRepository extends CrudRepository<Firewallevent,String> {
+public interface FirewalleventRepository extends CrudRepository<Firewallevent,UUID> {
 
 
 

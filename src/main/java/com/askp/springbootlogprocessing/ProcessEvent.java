@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class ProcessEvent {
@@ -46,7 +47,7 @@ public class ProcessEvent {
     }
 
     @RequestMapping("/events/{id}")
-    public Firewallevent getEvent(@PathVariable String id){
+    public Firewallevent getEvent(@PathVariable UUID id){
 
         return firewalleventService.getEvent(id);
     }
@@ -60,7 +61,7 @@ public class ProcessEvent {
 
 
     @RequestMapping(method = RequestMethod.DELETE,value = "/events/{id}")
-    public void deleteEvent(@PathVariable String id){
+    public void deleteEvent(@PathVariable UUID id){
 
         firewalleventService.deleteEevent(id);
     }

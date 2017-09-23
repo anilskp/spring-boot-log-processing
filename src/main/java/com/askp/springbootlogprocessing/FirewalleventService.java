@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
 
 @Service
 public class FirewalleventService {
@@ -22,9 +24,10 @@ public class FirewalleventService {
 
     }
 
-    public Firewallevent getEvent(String id){
+    public Firewallevent getEvent(UUID id){
 
         return firewalleventRepository.findOne(id);
+
     }
 
 
@@ -38,7 +41,7 @@ public class FirewalleventService {
         firewalleventRepository.save(firewallevent);
     }
 
-    public void deleteEevent(String id){
+    public void deleteEevent(UUID id){
         firewalleventRepository.delete(id);
 
     }
