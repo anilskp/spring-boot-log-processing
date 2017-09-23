@@ -1,3 +1,3 @@
 FROM openjdk:jre
 ADD target/logprocessing.jar ./
-CMD ["run.sh"] 
+CMD ["java","-jar","logprocessing.jar"]
