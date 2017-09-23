@@ -10,7 +10,9 @@ node {
 	        echo 'Git Checkout..'
 	        checkout scm
 	        echo 'Build'
-	        sh "chmod -R 0755 ./"
+	        sh "git rev-parse --short HEAD > .git/commit-id"
+            commit_id = readFile('.git/commit-id').trim()
+  	        sh "chmod -R 0755 ./"
 		writeFile file:'settings.xml', text:"<settings><localRepository>${pwd()}/.m2repo</localRepository></settings>"
 	       // sh 'mvn clean package -U'
 		sh 'mvn -B -s settings.xml clean install'
